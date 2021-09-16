@@ -6,7 +6,6 @@ const InputTag = ({
 }) => {
   const [tags, setTags] = useState(defaultTags);
   const [input, setInput] = useState('');
-
   const removeTags = (event, indexToRemove) => {
     event.preventDefault();
     const newTags = tags.filter((_, index) => index !== indexToRemove);
@@ -20,9 +19,8 @@ const InputTag = ({
 
   const addTags = (event) => {
     event.preventDefault();
-    const cleanedInput = input.trim();
-
-    if (cleanedInput.length && !tags.includes(cleanedInput)) {
+    const cleanedInput = input.trim().toLowerCase();
+    if (cleanedInput.length && !tags.includes(cleanedInput.toLowerCase())) {
       setInput(cleanedInput);
       setTags([...tags, cleanedInput]);
       selectedTags([...tags, cleanedInput]);
