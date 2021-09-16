@@ -1,0 +1,12 @@
+@mixin flex-config(
+	$justify: unset,
+	$align: unset,
+	$direction: row,
+	$wrap: nowrap
+) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+	flex-wrap: $wrap;
+}

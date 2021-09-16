@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './inputTag.scss';
 
 const InputTag = ({
   placeholder, required, defaultTags, selectedTags,
@@ -29,8 +30,8 @@ const InputTag = ({
   };
 
   return (
-    <div className="tags-input">
-      <ul id="tags">
+    <div className="container-input">
+      <ul className="container-input__list" id="tags">
         {tags.map((tag, index) => (
           <li key={tag} className="tag">
             <span className="tag-title">{tag}</span>
@@ -46,6 +47,7 @@ const InputTag = ({
         ))}
       </ul>
       <input
+        className="container-input__tag"
         type="text"
         onKeyDown={(event) => (event.key === 'Enter' ? addTags(event) : null)}
         onChange={onChangeGenres}
