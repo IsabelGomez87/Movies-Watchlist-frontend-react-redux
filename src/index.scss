@@ -1,0 +1,29 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	overflow: hidden;
+	height: 100%;
+	font-family: 'Montserrat', sans-serif;
+	body {
+		overflow: auto;
+		height: 100%;
+		letter-spacing: 1px;
+	}
+	ul,
+	li {
+		list-style: none;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+	}
+	button {
+		cursor: pointer;
+	}
+}
