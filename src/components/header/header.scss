@@ -1,0 +1,27 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/colors.scss';
+
+.header-container {
+	@include size(unset, 5rem, 0 auto);
+	@include flex-config(space-between, center);
+	max-width: 1180px;
+
+	.container-logo {
+		@include size(unset, 80%, unset, 10px 0 0 25px);
+
+		.logo {
+			@include size(unset, 100%);
+			background-color: transparent;
+			border: 2px $white solid;
+			border-radius: 50%;
+			margin-left: 10%;
+			object-fit: cover;
+		}
+	}
+
+	.logo-name {
+		@include size(unset, unset, unset, 10px 25px 0 0);
+		color: $transition-color;
+		font-size: 1.3rem;
+	}
+}

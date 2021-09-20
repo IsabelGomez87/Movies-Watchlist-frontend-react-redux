@@ -1,0 +1,7 @@
+@import '../src/styles/mixin.scss';
+
+.main-container {
+	@include size(unset, unset, 0 auto);
+	max-width: 1180px;
+	min-height: 100vh;
+}

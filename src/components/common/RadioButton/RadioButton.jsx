@@ -1,16 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './radioButton.scss';
 
-const Input = ({
-  value, text, isSelected, onChange, required, id,
+const RadioButton = ({
+  value, text, isSelected, onChange, required, id, name,
 }) => (
-  <div className="RadioButton">
-    <input id={id} type="radio" onChange={onChange} value={value} name="test" checked={isSelected} required={required} />
-    <label htmlFor={id}>{text}</label>
+  <div className="radio-button">
+    <input
+      data-testid="radio-button"
+      className="radio-button__input"
+      id={id}
+      type="radio"
+      onChange={onChange}
+      value={value}
+      name={name}
+      checked={isSelected}
+      required={required}
+    />
+    <label className="radio-button__label" htmlFor={id}>{text}</label>
   </div>
 );
 
-Input.propTypes = {
+RadioButton.propTypes = {
+  name: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
   required: PropTypes.bool,
@@ -19,13 +31,14 @@ Input.propTypes = {
   id: PropTypes.string,
 };
 
-Input.defaultProps = {
+RadioButton.defaultProps = {
   value: null,
   onChange: null,
   required: false,
   text: '',
+  name: '',
   isSelected: false,
   id: '',
 };
 
-export default Input;
+export default RadioButton;

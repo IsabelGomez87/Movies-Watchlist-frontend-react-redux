@@ -1,10 +1,12 @@
+@import '../../../styles/mixin.scss';
+@import '../../../styles/colors.scss';
+
 .input-text {
-	display: flex;
-	width: 100%;
+	@include size(100%, unset, unset, 14px);
 	border: 1px grey solid;
 	border-radius: 5px;
-	color: black;
-	outline: none;
-	padding: 14px;
+	color: $dark;
+	display: flex;
 	margin-top: 14px;
+	outline: none;
 }

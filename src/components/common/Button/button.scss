@@ -1,0 +1,40 @@
+@import '../../../styles/mixin.scss';
+@import '../../../styles/colors.scss';
+
+.simple-button {
+	@include size(135px, unset, 20px auto, 13px);
+	background-color: $main;
+	border: none;
+	border-radius: 20px;
+	color: $white;
+	font-size: 0.9rem;
+	overflow: hidden;
+	text-transform: capitalize;
+	transition: 0.2s transform ease-in-out;
+	will-change: transform;
+	z-index: 0;
+	&::after {
+		@include size(100%, 100%);
+		background-color: $transition-color;
+		border-radius: 20px;
+		content: '';
+		display: block;
+		left: 0;
+		position: absolute;
+		top: 0;
+		transform: translate(-100%, 0) rotate(10deg);
+		transform-origin: top left;
+		transition: 0.3s transform ease-out;
+		will-change: transform;
+		z-index: -1;
+	}
+	&:hover::after {
+		transform: translate(0, 0);
+	}
+	&:hover {
+		color: $white;
+		border: none;
+		transform: scale(1.05);
+		will-change: transform;
+	}
+}

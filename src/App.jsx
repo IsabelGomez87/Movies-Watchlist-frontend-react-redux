@@ -1,11 +1,11 @@
 import React from 'react';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
+import Header from './components/header/Header';
+import './app.scss';
 
 const App = () => (
   <div className="App">
-    <header className="header-container">
-      <h1>Movies</h1>
-    </header>
+    <Header />
     <main className="main-container">
       <Home />
     </main>

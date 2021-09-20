@@ -1,42 +1,43 @@
 @import '../../../styles/mixin.scss';
+@import '../../../styles/colors.scss';
 
 .container-input {
 	@include flex-config(unset, unset, row, wrap);
-	width: 100%;
-	max-width: 100%;
 	border: none;
-	color: black;
+	color: $dark;
+	max-width: 100%;
+	width: 100%;
+
 	&__list {
 		@include flex-config(unset, unset, row, wrap);
 		padding-top: 7px;
 	}
 
 	&__tag {
-		width: 100%;
-		min-width: 50%;
+		@include size(100%, unset, unset, 14px);
 		border: 1px grey solid;
 		border-radius: 5px;
-		outline: none;
-		padding: 14px;
 		margin-top: 14px;
+		min-width: 50%;
+		outline: none;
 	}
 }
 
 .tag {
 	@include flex-config(unset, center);
-	margin: 7px 10px 0px 0px;
-	padding: 0 5px 0 10px;
-	border: 1px solid orange;
+	@include size(unset, unset, 7px 10px 0px 0px, 0 5px 0 10px);
 	border-radius: 5px;
-	background-color: orange;
+	background-color: $secundary;
+	color: $white;
+	font-size: 14px;
 	white-space: nowrap;
-	color: white;
+
 	button {
-		display: flex;
-		padding: 6px;
+		@include flex-config();
+		@include size(unset, unset, unset, 6px);
 		border: none;
 		background-color: unset;
 		cursor: pointer;
-		color: white;
+		color: $white;
 	}
 }

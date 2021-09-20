@@ -10,3 +10,10 @@
 	flex-direction: $direction;
 	flex-wrap: $wrap;
 }
+
+@mixin size($width: unset, $height: unset, $margin: unset, $padding: unset) {
+	width: $width;
+	height: $height;
+	margin: $margin;
+	padding: $padding;
+}

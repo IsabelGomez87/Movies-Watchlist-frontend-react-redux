@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../components/home/Form';
+import Form from '../../components/home/Form';
 import './home.scss';
 
 const Home = () => (
