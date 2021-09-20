@@ -1,28 +1,35 @@
+@import '../src/styles/mixin.scss';
+@import '../src/styles/colors.scss';
+
 *,
 *::after,
 *::before {
-	margin: 0;
-	padding: 0;
+	@include size(unset, unset, 0, 0);
 	box-sizing: border-box;
 }
 html {
+	@include size(unset, 100%);
+	background-color: $background;
+	color: $dark;
+	font-family: 'Raleway', sans-serif;
 	overflow: hidden;
-	height: 100%;
-	font-family: 'Montserrat', sans-serif;
+
 	body {
-		overflow: auto;
-		height: 100%;
+		@include size(unset, 100%);
 		letter-spacing: 1px;
+		overflow: auto;
 	}
-	ul,
-	li {
+
+	ul {
 		list-style: none;
 	}
+
 	a {
 		text-decoration: none;
 		color: inherit;
 		cursor: pointer;
 	}
+
 	button {
 		cursor: pointer;
 	}

@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './checkbox.scss';
 
-const Input = ({
-  isChecked, onChange, value, required, id, text,
+const Checkbox = ({
+  isChecked, onChange, value, required, name, text,
 }) => (
   <div>
     <input
-      id={id}
+      id={name}
+      data-testid="checkbox"
+      className="checkbox"
+      name={name}
       type="checkbox"
       checked={isChecked}
       onChange={onChange}
@@ -14,26 +18,34 @@ const Input = ({
       required={required}
     />
     <span />
-    <label htmlFor={id}>{text}</label>
+    <label
+      htmlFor={name}
+      className="checkbox-label"
+    >
+      {text}
+    </label>
   </div>
 );
 
-Input.propTypes = {
-  value: PropTypes.string,
+Checkbox.propTypes = {
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
   onChange: PropTypes.func,
   required: PropTypes.bool,
   isChecked: PropTypes.bool,
-  id: PropTypes.string,
+  name: PropTypes.string,
   text: PropTypes.string,
 };
 
-Input.defaultProps = {
+Checkbox.defaultProps = {
   value: null,
   onChange: null,
   required: false,
   isChecked: false,
-  id: '',
+  name: '',
   text: '',
 };
 
-export default Input;
+export default Checkbox;
