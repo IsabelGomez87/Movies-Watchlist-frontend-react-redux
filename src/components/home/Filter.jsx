@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable no-console */
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import RadioButton from '../common/RadioButton/RadioButton';
 import Input from '../common/Input/Input';
 import Button from '../common/Button/Button';
@@ -9,12 +8,16 @@ import './filter.scss';
 
 const Filter = () => {
   const genresToFilter = ['horror', 'romance', 'comedy'];
-  const [isSelected, setIsSelected] = useState(false);
-  const [titleFilter, setTitleFilter] = useState('');
+  const { genreId = '' } = useParams();
+  const [toFilter, setToFilter] = useState({ title: '', genre: '' });
   const history = useHistory();
 
+  useEffect(() => {
+    setToFilter({ ...toFilter, genre: genreId });
+  }, [genreId]);
+
   const onChange = (event) => {
-    setTitleFilter(event.target.value);
+    setToFilter({ ...toFilter, title: event.target.value });
   };
 
   return (
@@ -23,10 +26,11 @@ const Filter = () => {
         <div className="radio-buttons-container">
           {genresToFilter.map((genre) => (
             <RadioButton
+              key={genre}
               value={genre}
               text={genre}
-              isSelected={isSelected}
-              onChange={(event) => ((genre !== event.target.value) ? isSelected : setIsSelected(true) && history.push(`/genre=${genre}`))}
+              isSelected={genre.toLowerCase() === toFilter.genre.toLowerCase()}
+              onChange={() => history.push(`/genre=${genre}`)}
               required
               id={genre}
               name={genre}
@@ -35,7 +39,7 @@ const Filter = () => {
         </div>
         <label className="label-container" htmlFor="name">
           Search movie:
-          <Input value={titleFilter} onChange={onChange} name="name" placeholder="Insert the movie's title" type="text" className="label-container__input" />
+          <Input value={toFilter.title} onChange={onChange} name="name" placeholder="Insert the movie's title" type="text" className="label-container__input" />
         </label>
         <Button type="button" className="simple-button" text="Reset" handleClick={() => history.push('/')} />
       </div>
