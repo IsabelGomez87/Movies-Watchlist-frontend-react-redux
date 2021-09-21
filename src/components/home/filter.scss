@@ -1,0 +1,22 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/colors.scss';
+
+.container {
+	@include flex-config(center);
+
+	.filter-container {
+		@include size(30em);
+		@include flex-config(center, unset, column);
+
+		.radio-buttons-container {
+			@include size(unset, unset, 10px 30px);
+			@include flex-config(space-evenly);
+		}
+
+		.label-container {
+			@include size(unset, unset, 10px 30px);
+			display: block;
+			font-size: 1.1rem;
+		}
+	}
+}
