@@ -1,0 +1,5 @@
+@import '../../styles/mixin.scss';
+
+.list-container {
+	@include flex-config(space-evenly, center, column);
+}
