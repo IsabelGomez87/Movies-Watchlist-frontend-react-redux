@@ -11,7 +11,7 @@ import './form.scss';
 const Form = () => {
   const dispatch = useDispatch();
   const [movieName, setMovieName] = useState('');
-  const [selectedTags, setSelectedTags] = useState('');
+  const [selectedTags, setSelectedTags] = useState([]);
 
   const onSubmitNewMovie = (event) => {
     event.preventDefault();

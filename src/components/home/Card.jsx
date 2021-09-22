@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../common/Button/Button';
 import Checkbox from '../common/Checkbox/Checkbox';
+import './card.scss';
 
 const Card = ({
-  image, title, genres, watched,
+  image, name, genres, watched,
 }) => {
   const setChangeMovie = () => {
     // TODO: implement the logic
@@ -15,16 +16,16 @@ const Card = ({
   };
 
   return (
-    <article>
+    <article className="card">
       <div className="card-image">
         <img className="image" src={image} alt="movie" />
       </div>
       <div className="card-info">
-        <p className="title">{title}</p>
+        <p className="title">{name}</p>
         <ul className="card-info__genres">
           {genres.map((genre) => <li className="tag" key={genre}>{genre}</li>)}
         </ul>
-        <Checkbox className="container-info__checkbox" isChecked={watched} onChange={setChangeMovie} value={watched} name={title} text="Watched" />
+        <Checkbox className="container-info__checkbox" isChecked={watched} onChange={setChangeMovie} value={watched} name={name} text="Watched" />
         <Button className="delete-button" text="Detele" type="buton" handleClick={setDeleteMovie} />
       </div>
     </article>
@@ -33,7 +34,7 @@ const Card = ({
 
 Card.propTypes = {
   image: PropTypes.string,
-  title: PropTypes.string,
+  name: PropTypes.string,
   genres: PropTypes.arrayOf(PropTypes.string),
   watched: PropTypes.bool,
 
@@ -41,7 +42,7 @@ Card.propTypes = {
 
 Card.defaultProps = {
   image: '',
-  title: '',
+  name: '',
   genres: [],
   watched: false,
 };
