@@ -1,14 +1,14 @@
 import actionTypes from './actionTypes';
 import {
-  addMovieToApi, deleteMovieToApi, updateMovieToApi, loadMoviesApi,
+  addMovieToApi, deleteMovieToApi, updateMovieToApi,
 } from '../../services/movies';
 
 export const createMovie = (movie) => async (dispatch) => {
   try {
-    const response = await addMovieToApi(movie);
+    await addMovieToApi(movie);
     dispatch({
       type: actionTypes.CREATE_MOVIE,
-      movie: response,
+      movie,
     });
   } catch (error) {
     dispatch({
@@ -30,30 +30,16 @@ export const deleteMovie = (id) => async (dispatch) => {
   }
 };
 
-export const updateMovie = (data) => async (dispatch) => {
+export const updateMovie = (movie) => async (dispatch) => {
   try {
-    const response = await updateMovieToApi(data);
+    await updateMovieToApi(movie);
     dispatch({
       type: actionTypes.UPDATE_MOVIE,
-      movie: response,
+      movie,
     });
   } catch (error) {
     dispatch({
       type: actionTypes.UPDATE_MOVIE_ERROR,
-    });
-  }
-};
-
-export const loadMovies = () => async (dispatch) => {
-  try {
-    const response = await loadMoviesApi();
-    dispatch({
-      type: actionTypes.LOAD_MOVIES,
-      movies: response,
-    });
-  } catch (error) {
-    dispatch({
-      type: actionTypes.LOAD_MOVIES_ERROR,
     });
   }
 };
