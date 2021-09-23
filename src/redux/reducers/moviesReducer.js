@@ -5,7 +5,7 @@ const moviesReducer = (movies = [], action) => {
     case actionTypes.CREATE_MOVIE:
       return [...movies, action.movie];
     case actionTypes.DELETE_MOVIE:
-      return movies.filter((item) => item.id !== action.movieId);
+      return movies.filter((item) => item.movieId !== action.movieId);
     default:
       return movies;
   }

@@ -22,6 +22,7 @@ export const deleteMovie = (id) => async (dispatch) => {
     await deleteMovieToApi(id);
     dispatch({
       type: actionTypes.DELETE_MOVIE,
+      movieId: id,
     });
   } catch (error) {
     dispatch({
