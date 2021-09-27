@@ -6,11 +6,11 @@ export const addMovieToApi = async (movie) => {
 };
 
 export const deleteMovieToApi = async (id) => {
-  const response = await mockApiCall(3000, id);
+  const response = await mockApiCall(0, id);
   return response;
 };
 
 export const updateMovieToApi = async (data) => {
-  const response = await mockApiCall(3000, data);
+  const response = await mockApiCall(0, data);
   return response;
 };
