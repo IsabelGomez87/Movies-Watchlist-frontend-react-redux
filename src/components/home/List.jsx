@@ -10,22 +10,14 @@ import './list.scss';
 const List = ({ movies }) => {
   const dispatch = useDispatch();
 
-  const setChangeMovie = (name, id) => {
-    dispatch(updateMovie(name, id));
-  };
-
-  const setDeleteMovie = (id) => {
-    dispatch(deleteMovie(id));
-  };
-
   return (
     <section className="list-container" data-testid="list">
       {movies && movies.map((movie) => (
         <Card
           {...movie}
           key={movie.name}
-          setChangeMovie={() => setChangeMovie(movie.name, movie.movieId)}
-          setDeleteMovie={() => setDeleteMovie(movie.movieId)}
+          setUpdateMovie={(id, name, value) => dispatch(updateMovie(id, name, value))}
+          setDeleteMovie={(id) => dispatch(deleteMovie(id))}
         />
       ))}
     </section>

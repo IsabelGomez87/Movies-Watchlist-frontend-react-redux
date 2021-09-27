@@ -14,8 +14,3 @@ export const updateMovieToApi = async (data) => {
   const response = await mockApiCall(3000, data);
   return response;
 };
-
-export const loadMoviesApi = async () => {
-  const response = await mockApiCall(1000);
-  return response;
-};
