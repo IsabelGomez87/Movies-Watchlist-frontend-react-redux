@@ -1,0 +1,20 @@
+@import '../../../styles/mixin.scss';
+@import '../../../styles/colors.scss';
+
+.spinner {
+	@include size(75px, 75px, 20px auto);
+	animation: spin 1s ease infinite;
+	border: 6px solid $white;
+	border-left-color: $secundary;
+	border-radius: 50%;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

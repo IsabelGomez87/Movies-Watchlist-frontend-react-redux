@@ -31,12 +31,12 @@ export const deleteMovie = (id) => async (dispatch) => {
   }
 };
 
-export const updateMovie = (movie) => async (dispatch) => {
+export const updateMovie = (id, name, watched) => async (dispatch) => {
   try {
-    await updateMovieToApi(movie);
+    await updateMovieToApi(id, name, watched);
     dispatch({
       type: actionTypes.UPDATE_MOVIE,
-      movie,
+      newData: { id, name, watched },
     });
   } catch (error) {
     dispatch({
