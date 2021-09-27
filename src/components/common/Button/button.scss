@@ -1,7 +1,8 @@
 @import '../../../styles/mixin.scss';
 @import '../../../styles/colors.scss';
 
-.simple-button {
+.simple-button,
+.delete-button {
 	@include size(135px, unset, 20px auto, 13px);
 	background-color: $main;
 	border: none;
@@ -37,4 +38,8 @@
 		transform: scale(1.05);
 		will-change: transform;
 	}
+}
+
+.delete-button {
+	@include size(75px, unset, inherit, 8px);
 }

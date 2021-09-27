@@ -10,8 +10,9 @@ import './form.scss';
 
 const Form = () => {
   const dispatch = useDispatch();
+  const [movieId, setMovieId] = useState(0);
   const [movieName, setMovieName] = useState('');
-  const [selectedTags, setSelectedTags] = useState('');
+  const [selectedTags, setSelectedTags] = useState([]);
 
   const onSubmitNewMovie = (event) => {
     event.preventDefault();
@@ -20,7 +21,9 @@ const Form = () => {
       name: movieName,
       genres: selectedTags,
       watched: false,
+      movieId,
     };
+    setMovieId(movieId + 1);
     dispatch(createMovie(newMovie));
   };
 
