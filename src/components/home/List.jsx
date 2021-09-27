@@ -12,14 +12,16 @@ const List = ({ movies }) => {
 
   return (
     <section className="list-container" data-testid="list">
-      {movies && movies.map((movie) => (
+      {movies ? movies.map((movie) => (
         <Card
           {...movie}
           key={movie.name}
           setUpdateMovie={(id, name, value) => dispatch(updateMovie(id, name, value))}
           setDeleteMovie={(id) => dispatch(deleteMovie(id))}
         />
-      ))}
+      )) : (
+        <p>No movies with selected genre...</p>
+      )}
     </section>
   );
 };
