@@ -19,9 +19,20 @@ const Home = () => {
       dataFiltered = data.filter((movie) => movie.genres
         .some((genre) => genre.toLowerCase() === toFilter.genre.toLowerCase()));
     }
-    console.log('dataFiltered', dataFiltered);
+    console.log('dataFiltered genre', dataFiltered);
+    if (toFilter.name !== '') {
+      dataFiltered = data.filter((movie) => movie.name.toLowerCase()
+        .includes(toFilter.name.toLowerCase()));
+    }
     setMovieList(dataFiltered);
+    console.log('dataFiltered name', dataFiltered);
+
+    console.log('moviesList', moviesList);
   };
+
+  useEffect(() => {
+    setToFilter({ ...toFilter, genre: genreId });
+  }, [genreId]);
 
   useEffect(() => {
     if (toFilter.genre === '' || toFilter.name === '') {
@@ -29,23 +40,12 @@ const Home = () => {
     }
   }, [toFilter.genre, toFilter.name, data]);
 
-  useEffect(() => {
-    setToFilter({ ...toFilter, genre: genreId });
-  }, [genreId]);
-
-  const onChangeFilter = (event) => {
-    setToFilter({ ...toFilter, name: event.target.value });
-  };
-
   return (
     <div className="home-container">
       <Form />
-      <Filter toFilter={toFilter} onChange={onChangeFilter} />
-      {moviesList.length
-        ? <List movies={moviesList} />
-        : (
-          <p className="message">Add your movies here!</p>
-        )}
+      <Filter toFilter={toFilter} onChange={setToFilter} />
+      {data.length ? <List movies={moviesList} />
+        : <p className="message">Add your movies here!</p>}
     </div>
 
   );
