@@ -7,7 +7,7 @@ import Input from '../common/Input/Input';
 import Button from '../common/Button/Button';
 import './filter.scss';
 
-const Filter = ({ toFilter, onChangeFilter }) => {
+const Filter = ({ toFilter, onChange }) => {
   const genresToFilter = ['horror', 'romance', 'comedy'];
   const history = useHistory();
 
@@ -30,7 +30,7 @@ const Filter = ({ toFilter, onChangeFilter }) => {
         </div>
         <label className="label-container" htmlFor="name">
           Search movie:
-          <Input value={toFilter.name} onChange={onChangeFilter} name="name" placeholder="Insert the movie's title" type="text" className="label-container__input" />
+          <Input value={toFilter.name} onChange={(event) => onChange({ ...toFilter, name: event.target.value })} name="name" placeholder="Insert the movie's title" type="text" className="label-container__input" />
         </label>
         <Button type="button" className="simple-button" text="Reset" handleClick={() => history.push('/')} />
       </div>
@@ -40,13 +40,13 @@ const Filter = ({ toFilter, onChangeFilter }) => {
 
 Filter.propTypes = {
   toFilter: PropTypes.objectOf(PropTypes.any),
-  onChangeFilter: PropTypes.func,
+  onChange: PropTypes.func,
 
 };
 
 Filter.defaultProps = {
   toFilter: {},
-  onChangeFilter: null,
+  onChange: null,
 
 };
 
