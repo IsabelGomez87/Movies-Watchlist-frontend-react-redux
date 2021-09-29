@@ -20,7 +20,7 @@ const List = ({ movies }) => {
           setDeleteMovie={(id) => dispatch(deleteMovie(id))}
         />
       )) : (
-        <p className="message">No movies with selected genre...</p>
+        <p className="message">Add your movies here!</p>
       )}
     </section>
   );
