@@ -1,4 +1,4 @@
-# Movie Checker
+# Movie WatchList
 
 This is a fictional web app that offers a personalized list of movies. The user can add their movies, with their title, genres and even mark if they have watched them or not. In addition, the user can filter the list of movies based on genres.
 
@@ -42,7 +42,7 @@ Mobile view
 
 ## Run Locally
 
-• Clone the repo git clone https://github.com/IsabelGomez87/movie-whatchlist.git
+• Clone the repo git clone https://github.com/IsabelGomez87/Movies-Watchlist-frontend-react-redux.git
 
 • Install dependencies npm install
 
